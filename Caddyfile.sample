@@ -1,0 +1,13 @@
+# uncomment when troubleshooting TLS/cert issues
+# uses untrusted certs but w/o rate limits
+# re-comment before actually running
+# {
+# 	acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
+# }
+
+SUBDOMAIN.DOMAIN.EXT {
+	tls {
+		dns cloudflare {env.CF_API_TOKEN}
+	}
+	reverse_proxy jellyfin:8096
+}

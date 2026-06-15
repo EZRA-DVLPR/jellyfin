@@ -1,0 +1,52 @@
+services:
+  caddy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    container_name: caddy
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      - CF_API_TOKEN=${CF_API_TOKEN}
+    volumes:
+      - /etc/caddy:/etc/caddy
+      - caddy_data:/data
+      - caddy_config:/config
+
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    restart: unless-stopped
+    volumes:
+    - /opt/docker/jellyfin/config:/config
+    - /opt/docker/jellyfin/cache:/cache
+    # Single explained example of data source
+    # Anime - name of collection for my reference
+    - type: bind
+      # Path on Host (external HDD)
+      source: "/media/ez-deb/Seagate Portable Drive/Videos/Anime/"
+      # Path container uses internally
+      target: /media/Videos/Anime
+      
+    # Comedy
+    - type: bind
+      source: "/media/ez-deb/Seagate Portable Drive/Videos/Comedy/"
+      target: /media/Videos/Comedy
+
+	...
+
+  cloudflare-ddns:
+    image: favonia/cloudflare-ddns:latest
+    restart: always
+    environment:
+      - CLOUDFLARE_API_TOKEN=${CF_API_TOKEN}
+      - DOMAINS=SUBDOMAIN.DOMAIN.EXT # This should match the Caddyfile
+	  - PROXIED=false
+      - IP6_PROVIDER=none
+
+volumes:
+  caddy_data:
+  caddy_config:
