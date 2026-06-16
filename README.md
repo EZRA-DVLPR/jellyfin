@@ -39,12 +39,13 @@ Makes me happy.
 
 ### Why Jellyfin?
 
-I decided on Jellyfin since it is FOSS, and has a dedicated set of apps and applets for end-user devices like phones and Smart TV's.
-This means that I can make the Jellyfin server, expose it up to the internet, then access it anywhere with internet access.
+I decided on Jellyfin since it is FOSS, and has a dedicated set of apps and applets for end-user devices like smartphones and Smart TV's.
+This means that I can make the Jellyfin server, expose it to the internet, then access it anywhere with internet access.
 
 I found plex to be lame since you have to pay for it.
 I have the capabilities to maintain my own server and not pay anyone else to do it.
-Monthly subscription to access my data? When I can do it myself and customize it how it want it?
+Having to pay a MONTHLY subscription to access MY data? 
+Especially when I can do it myself and customize it how I want it?
 Hell nah fam.
 
 Emby is cool, but I'd rather go for something with a bit more support for end-user
@@ -62,7 +63,7 @@ For Music, I use:
 I used this since it had some great reviews from the internet and I can absolutely attest to that.
 It ran well, handled just about any type of CD that I used, and has some cool customization should you want to use that.
 I also really enjoyed the GUI. I would prefer a dark-mode option, but hey still super cool.
-It also has integrations to Tagging databases like MusicBrainz, and others.
+It also has integrations to tagging databases like MusicBrainz, and others.
 
 - [abcde](https://abcde.einval.com/wiki/) - A Better CD Encoder - (A Linux-friendly Music CD Reader)
 I enjoy this more compared to EAC since it's run via cmd line and I can edit it via nvim (text editor of choice).
@@ -71,14 +72,14 @@ It integrates with other plugins just like EAC such as Musicbrainz.
 I store the Music in **16-bit 44.1 kHz quality FLAC**.
 According to research online, namely 
 [this source](https://www.tonestack.net/articles/digital-audio/high-resolution-audio-vs-16bit-44khz.html)
-amongst people's opinions on the internet,
+as well as other people's opinions on the internet,
 I decided on this quality as a maximum limit for what I store my music as.
 I also tested the other higher qualities and found them overkill which supported the findings from this article.
 
 I also use the [FLAC](https://en.wikipedia.org/wiki/FLAC) filetype.
 This filetype is useful since it's lossless and compressed too.
 The name of FLAC is actually (Free Lossless Audio Codec) which is neat.
-Compared to wav's it can take up to 50% less space, it also allows for metadata (i.e. tagging).
+Compared to wav's it can take up to 50% less space, and also allows for metadata (i.e. tagging).
 
 Speaking of Tagging, I utilize [MusicBrainz](https://musicbrainz.org/) for tagging.
 It is basically an extremely large database of music metadata.
@@ -102,7 +103,7 @@ Did I mention that it's *NIX and Windows compatible?
 #### Movies/TV-Shows/Anime/Comedy Specials/Anything that has Video and Audio
 
 I utilize [.mkv](https://en.wikipedia.org/wiki/Matroska) files since they are lossless
-and combines all information from the video into a single file.
+and combine all information from the video into a single file.
 
 For movies I use:
 
@@ -111,23 +112,26 @@ Super simple GUI that get's the job done.
 Works on encrypted DVD's and Blu-rays allegedly.
 
 - [Handbrake](https://handbrake.fr/). 
-It's a FOSS tool that allows me to extract video from non-encrypted sources (home movies and stuff like that).
-Has a GUI which is nice, but even more it has sooooo many customization options which makes it stand out for me.
+Another cross-platform desktop FOSS tool that is awesome.
+It extracts video from non-encrypted sources (home movies and stuff like that).
+Has a GUI which is nice, but even more impressive are its many customization options
+which makes it stand out for me.
 
 I highly recommend these two software.
 
 ## Cloudflare
 
-I already have a couple of domains on [Cloudflare](https://www.cloudflare.com/) so I decided to make it route through them.
-Makes the process for caddy super simple and the same for the jellyfin too.
+I already have a couple of domains on [Cloudflare](https://www.cloudflare.com/) so I
+decided to make it route through another domain from them.
+Makes the process for caddy super simple and in turn, jellyfin too.
 
-It handles traffic and I can monitor that stuff.
+It handles traffic and allows me to monitor it.
 It also has high uptime compared to...
 
 ### DuckDNS
 
 I actually used [DuckDNS](https://www.duckdns.org/) before Cloudflare as a free option.
-I also support them and their mission.
+I still support them and their mission.
 
 HOWEVER!
 
@@ -143,13 +147,13 @@ I simply opted for Cloudflare as a paid option since I valued the uptime highly.
 I run this inside a [Docker](https://www.docker.com/) container for portability and low resource usage.
 
 Docker is a software that basically lets you create containers (NOT VIRTUAL MACHINES) to compartmentalize actively running pieces of software.
-Envision a manager that tells it's team leads to do stuff.
+Envision a manager that tells their team leads to do separate tasks.
 That's basically Docker in use.
 
 Here, I have 3 containers being created:
 
 - Caddy: caddy stuff (server)
-- Jellyfin: handles the jellyfin server (most of the heavy lifting - media reading, routing, auth, etc.)
+- Jellyfin: handles the jellyfin instance (most of the heavy lifting - media reading, routing, auth, etc.)
 - Cloudflare-ddns: ensures connection to cloudflare (TLS/DNS)
 
 Check the 
