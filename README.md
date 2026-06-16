@@ -37,7 +37,7 @@ I use it mainly for my music collection since I have a lot of CD's, but it also 
 I like it as an alternative to Spotify since it's ad-free, my music, and free.
 Makes me happy.
 
-### Why Jellfin?
+### Why Jellyfin?
 
 I decided on Jellyfin since it is FOSS, and has a dedicated set of apps and applets for end-user devices like phones and Smart TV's.
 This means that I can make the Jellyfin server, expose it up to the internet, then access it anywhere with internet access.
@@ -47,9 +47,74 @@ I have the capabilities to maintain my own server and not pay anyone else to do 
 Monthly subscription to access my data? When I can do it myself and customize it how it want it?
 Hell nah fam.
 
-Emby is cool, but I'd rather go for something with a tiny bit more support for end-user devices as well as the dev docs.
+Emby is cool, but I'd rather go for something with a bit more support for end-user
+devices (like the Jellyfin app for mobile) as well as the dev docs.
 
 If Jellyfin was not an option, I would say Emby is a good runner-up.
+
+### How do you prepare your media for Jellyfin?
+
+#### Music
+
+For Music, I use:
+
+- [EAC](https://www.exactaudiocopy.de/) - Exact Audio Copy - (A Windows OS Music CD Reader)
+I used this since it had some great reviews from the internet and I can absolutely attest to that.
+It ran well, handled just about any type of CD that I used, and has some cool customization should you want to use that.
+I also really enjoyed the GUI. I would prefer a dark-mode option, but hey still super cool.
+It also has integrations to Tagging databases like MusicBrainz, and others.
+
+- [abcde](https://abcde.einval.com/wiki/) - A Better CD Encoder - (A Linux-friendly Music CD Reader)
+I enjoy this more compared to EAC since it's run via cmd line and I can edit it via nvim (text editor of choice).
+It integrates with other plugins just like EAC such as Musicbrainz.
+
+I store the Music in **16-bit 44.1 kHz quality FLAC**.
+According to research online, namely 
+[this source](https://www.tonestack.net/articles/digital-audio/high-resolution-audio-vs-16bit-44khz.html)
+amongst people's opinions on the internet,
+I decided on this quality as a maximum limit for what I store my music as.
+I also tested the other higher qualities and found them overkill which supported the findings from this article.
+
+I also use the [FLAC](https://en.wikipedia.org/wiki/FLAC) filetype.
+This filetype is useful since it's lossless and compressed too.
+The name of FLAC is actually (Free Lossless Audio Codec) which is neat.
+Compared to wav's it can take up to 50% less space, it also allows for metadata (i.e. tagging).
+
+Speaking of Tagging, I utilize [MusicBrainz](https://musicbrainz.org/) for tagging.
+It is basically an extremely large database of music metadata.
+It has everything you would want to tag your CD's and digital music files.
+
+I utilize their software [MusicBrainz Picard](https://picard.musicbrainz.org/) 
+which is a FOSS that allows you to tag CD's or audio files with their system.
+It integrates FLAWLESSLY between their website and software version.
+You can copy the link for the exact CD release that you have in the URL and drag it into
+Picard, and it is just THERE. 
+ABSOLUTELY MENTAL.
+
+I don't even think people realize how incredible that is given the VAST amount of
+music information they have in their database.
+Did I mention that it's *NIX and Windows compatible?
+
+> [!Note]
+> I am not affiliated with ANY of the software listed.
+> I'm simply talking about them here in the README.md
+
+#### Movies/TV-Shows/Anime/Comedy Specials/Anything that has Video and Audio
+
+I utilize [.mkv](https://en.wikipedia.org/wiki/Matroska) files since they are lossless
+and combines all information from the video into a single file.
+
+For movies I use:
+
+- [MakeMKV](https://www.makemkv.com/). It works flawlessly across OS in my experience.
+Super simple GUI that get's the job done.
+Works on encrypted DVD's and Blu-rays allegedly.
+
+- [Handbrake](https://handbrake.fr/). 
+It's a FOSS tool that allows me to extract video from non-encrypted sources (home movies and stuff like that).
+Has a GUI which is nice, but even more it has sooooo many customization options which makes it stand out for me.
+
+I highly recommend these two software.
 
 ## Cloudflare
 
